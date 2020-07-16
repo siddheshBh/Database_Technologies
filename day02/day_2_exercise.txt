@@ -1,0 +1,79 @@
+-- creating database
+create exercise;
+
+--Q1. Create the table SEMP with the following structure:- 
+create table semp
+(
+empno char(4),
+empname char(20),
+basic float(9,2),
+deptno char(2),
+depthead char(4)
+);
+
+--Q2. Create the table SDEPT with the following structure:- 
+create table sdept
+(
+deptno char(2),
+deptname char(15)
+);
+
+--Q3. Insert into the SDEPT table the following values:- 
+
+insert into sdept
+ values
+(
+'10',
+'Development'
+);
+
+insert into sdept
+ values
+(
+'20',
+'Training'
+);
+
+
+--Q4. Insert into the SEMP table the following values:- 
+insert into semp
+values
+(
+'0001',
+'SUNIL',
+6000,
+10,
+null
+);
+
+insert into semp
+values
+(
+'0002',
+'HIREN',
+8000,
+20,
+null
+);
+
+insert into semp
+values
+(
+'0003',
+'ALI',
+4000,
+10,
+0001
+);
+
+insert into semp
+values
+(
+'0004',
+'GEORGE',
+6000,
+null,
+0002
+);
+
+--Q5. 
