@@ -44,7 +44,7 @@ values(
 'New York',
 .10
 );
-
+=======================================
 create table customers
 (
 cnum int(4),
@@ -116,7 +116,7 @@ values(
 100,
 1004
 );
-
+=====================================
 create table orders
 (
 onum int(4),
