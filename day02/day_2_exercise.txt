@@ -1,7 +1,7 @@
 -- creating database
 create exercise;
 
---Q1. Create the table SEMP with the following structure:- 
+-- Q1. Create the table SEMP with the following structure:- 
 create table semp
 (
 empno char(4),
@@ -11,14 +11,14 @@ deptno char(2),
 depthead char(4)
 );
 
---Q2. Create the table SDEPT with the following structure:- 
+-- Q2. Create the table SDEPT with the following structure:- 
 create table sdept
 (
 deptno char(2),
 deptname char(15)
 );
 
---Q3. Insert into the SDEPT table the following values:- 
+-- Q3. Insert into the SDEPT table the following values:- 
 
 insert into sdept
  values
@@ -35,7 +35,7 @@ insert into sdept
 );
 
 
---Q4. Insert into the SEMP table the following values:- 
+-- Q4. Insert into the SEMP table the following values:- 
 insert into semp
 values
 (
@@ -76,4 +76,385 @@ null,
 0002
 );
 
---Q5. 
+-- creating table S, P, J, SPJ
+
+create table s
+(
+`s#` char(4),
+sname char(20),
+status int(3),
+city char(15) 
+);
+
+
+insert into s
+values
+(
+'S1',
+'Roger',
+10,
+'San Jose'
+);
+
+insert into s
+values
+(
+'S2',
+'Buds',
+20,
+'Paris'
+);
+
+insert into s
+values
+(
+'S3',
+'Geeks',
+30,
+'Athens'
+);
+
+insert into s
+values
+(
+'S4',
+'Boats',
+40,
+'London'
+);
+
+insert into s
+values
+(
+'S5',
+'Trakes',
+10,
+'Paris'
+);
+
+insert into s
+values
+(
+'S6',
+'Tomb',
+40,
+'Athens'
+);
+
+insert into s
+values
+(
+'S7',
+'Ratles',
+10,
+'London'
+);
+
+insert into s
+values
+(
+'S8',
+'Murray',
+30,
+'Dublin'
+);
+
+insert into s
+values
+(
+'S9',
+'Bryan',
+10,
+'Dubh'
+);
+
+
+-- table for p
+
+create table p
+(
+`p#` char(4),
+pname char(20),
+color char(15),
+weight int(4),
+city char(15) 
+);
+
+-- inserting values into p
+
+insert into p
+values
+(
+'P1',
+'Keyboard',
+'black',
+20,
+'Paris'
+);
+
+insert into p
+values
+(
+'P2',
+'Mouse',
+'black',
+14,
+'London'
+);
+
+insert into p
+values
+(
+'P3',
+'Router',
+'Silver',
+19,
+'Alberta'
+);
+
+insert into p
+values
+(
+'P4',
+'Ethernet',
+'Grey',
+11,
+'Toronto'
+);
+
+insert into p
+values
+(
+'P5',
+'Socket',
+'White',
+13,
+'San Jose'
+);
+
+insert into p
+values
+(
+'P6',
+'USB',
+'Blue',
+13,
+'London'
+);
+
+insert into p
+values
+(
+'P7',
+'Thunderbolt',
+'White',
+18,
+'California'
+);
+
+insert into p
+values
+(
+'P8',
+'LED',
+'Red',
+15,
+'Paris'
+);
+
+insert into p
+values
+(
+'P9',
+'VGA',
+'Blue',
+9,
+'Tiwan'
+);
+
+-- creating table j
+
+create table J
+(
+`J#` char(4),
+Jname varchar(20),
+City varchar(20)
+);
+
+-- inserting into J
+
+insert into J
+values
+(
+'J1',
+'EHome',
+'London'
+);
+
+insert into J
+values
+(
+'J2',
+'EMail',
+'Athens'
+);
+
+insert into J
+values
+(
+'J3',
+'ECom',
+'Paris'
+);
+
+insert into J
+values
+(
+'J4',
+'Computers',
+'Alberta'
+);
+
+insert into J
+values
+(
+'J5',
+'Cars',
+'Dublin'
+);
+
+insert into J
+values
+(
+'J6',
+'Electronics',
+'Athens'
+);
+
+insert into J
+values
+(
+'J7',
+'Cables',
+'san Jose'
+);
+
+insert into J
+values
+(
+'J8',
+'EHome',
+'Paris'
+);
+
+insert into J
+values
+(
+'J9',
+'Electronics',
+'London'
+);
+
+-- creating spj
+
+create table SPJ
+(
+`S#`char(4),
+`P#` char(4),
+`J#` char(4),
+Qty int(4)
+);
+
+-- inserting into spj
+
+insert into spj
+values
+(
+'S1',
+'P1',
+'J1',
+15
+);
+
+insert into spj
+values
+(
+'S2',
+'P2',
+'J2',
+20
+);
+
+insert into spj
+values
+(
+'S3',
+'P3',
+'J3',
+25
+);
+
+insert into spj
+values
+(
+'S4',
+'P4',
+'J4',
+10
+);
+
+insert into spj
+values
+(
+'S5',
+'P5',
+'J5',
+14
+);
+
+insert into spj
+values
+(
+'S5',
+'P6',
+'J6',
+11
+);
+
+
+-- Q5. Display all the data from the S table. 
+
+select * from s;
+
+-- Q6. Display only the S# and SNAME fields from the S table.
+select `S#`,Sname from S;
+
+-- 7. Display the PNAME and COLOR from the P table for the CITY=”London”.
+ select pname, color from p where city='London';
+
+-- 8. Display all the Suppliers from London.
+select * from s where city='London';
+
+-- 9. Display all the Suppliers from Paris or Athens.
+select * from s where city='Paris' OR city='Athens';
+
+-- 10. Display all the Projects in Athens.
+select * from j where city='Athens';
+
+-- 11. Display all the Partnames with the weight between 12 and 14 (inclusive of both).
+select pname from p where weight>=12 and weight<=14;
+
+-- 12. Display all the Suppliers with a Status greater than or equal to 20.
+select * from s where status>=20;
+
+-- 13. Display all the Suppliers except the Suppliers from London.
+
+select * from s where NOT city='London';
+
+-- 14. Display only the Cities from where the Suppliers come from.
+
+select city from s;
+
+-- 15. Assuming that the Part Weight is in GRAMS, display the same in
+	MILLIGRAMS and KILOGRAMS. 
+select weight*.001 'MILLIGRAMS', weight*1000 'KILOGRAMS' from p; 
