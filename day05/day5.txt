@@ -1,0 +1,50 @@
+create table emp
+(
+fname varchar(20),
+lname varchar(20)
+);
+
+insert into emp values
+(
+'arun', 'purun' 
+);
+
+insert into emp values
+(
+'tarun', 'arun' 
+);
+
+insert into emp values
+(
+'sirun', 'kirun' 
+);
+
+insert into emp values
+(
+'nutan', 'purun' 
+);
+============================================================================
+-- Q print-> Arun Purun
+
+select upper(fname) , upper(lname)
+from emp;
+
+select concat(upper(substr(fname,1,1)),substr(fname,2)),
+	concat(upper(substr(lname,1,1)),substr(lname,2))
+from emp;
+
+select concat(concat(fname,' '), lname)
+from emp;
+
+select concat(concat(concat(upper(substr(fname,1,1)),substr(fname,2)),' '),
+	 concat(upper(substr(lname,1,1)),substr(lname,2)))
+from emp;
+
+==================================================================================
+
+-- Q2 AMIT ->MT remove vowels
+
+select replace(fname,'a','')
+
+
+ 
