@@ -44,7 +44,20 @@ from emp;
 
 -- Q2 AMIT ->MT remove vowels
 
-select replace(fname,'a','')
+select replace(replace(replace(replace(replace(fname,'a',''),'e',''),'i',''),'o',''),'u','')'NO Vowels'
+from emp;
 
+===================================================================================
+-- Q3 display name at the center 
+
+select lpad(rpad(fname,(40-length(fname))/2,' '),ceil(40-length(fname))/2,' ')
+from emp;
+
+
+select lpad(fname,floor((40-length(fname))/2),' ')
+from emp;
+
+select lpad(rpad(fname,ceil((40-length(fname))/2),' '),floor((40-length(fname))/2),' ')
+from emp;
 
  
