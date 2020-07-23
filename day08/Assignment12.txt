@@ -1,0 +1,35 @@
+
+-- 1) Write a query that selects all customers whose ratings are equal to or greater than
+-- ANY of Serres’.
+
+select cname
+from customers 
+where rating >= any
+(select c.rating
+from customers c , salespeople s
+where s.sname='Serres' and s.snum=c.snum); 
+
+select c.rating
+from customers c , salespeople s
+where s.sname!='Serres' and s.snum=c.snum; 
+
+===================================================================================
+-- 2) Write a query using ANY or ALL that will find all salespeople who have no
+-- customers located in their city.
+
+select s.sname
+from salespeople s
+where s.city !=all(
+		select city
+		from customers  
+		);
+
+===================================================================================
+-- 3) Write a query that selects all orders for amounts greater than any for the
+-- customers in London.
+
+(select cname from cutomers where city='London');
+===================================================================================
+-- 4) Write the above query using MIN or MAX. 
+
+
