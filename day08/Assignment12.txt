@@ -28,8 +28,27 @@ where s.city !=all(
 -- 3) Write a query that selects all orders for amounts greater than any for the
 -- customers in London.
 
-(select cname from cutomers where city='London');
+select onum, amt
+from orders
+where amt> 
+	any(select  amt
+	from orders 
+	where cnum=
+		any(select cnum
+			 from customers
+			 where city='London')
+		);
 ===================================================================================
 -- 4) Write the above query using MIN or MAX. 
+select onum, amt
+from orders
+where amt> 
+	(select  min(amt)
+	from orders 
+	where cnum=
+		any(select cnum
+			 from customers
+			 where city='London')
+		);
 
 
