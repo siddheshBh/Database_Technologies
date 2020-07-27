@@ -5,18 +5,57 @@
 -- as Salespeople. Write a command that inserts all salespeople with more than one
 -- customer into this table.
 
-insert values 
-into multicust
-values snum in
-(select * 
-from salespeople
-where (
-select 
-)); 
+insert into multicust
+	 select * from Salespeople
+         where snum in 
+		(select snum
+ 		from customers
+ 		group by snum
+ 		having count(snum) > 1 ) ;
 =======================================================================================
 -- 2) Write a command that deletes all customers with no current orders.
 
+delete 
+from customers
+where cnum not in
+	(
+	select cnum
+	from orders
+	);
+
+-- select cname, cnum
+
++---------+------+
+| cname   | cnum |
++---------+------+
+| Clemens | 2006 |
++---------+------+
 
 =======================================================================================
 -- 3) Write a command that increases by twenty percent the commissions of all
 -- salespeople with total orders above Rs. 3,000.
+
+
+update salespeople
+set comm=(comm+0.2)
+where snum in(
+		select snum 
+		from orders 
+		group by snum
+		having sum(amt)>3000
+		);
+
+
+-- If you try to do the below code this in my sql using update it will give error 
+-- As at same time your updating and accesssing the value
+select snum,sname,comm, (comm+(comm*0.20))
+from salespeople
+where snum in
+(
+select s.snum 
+from orders o, salespeople s
+where s.snum=o.snum
+group by s.snum
+having sum(o.amt)>3000
+);
+
