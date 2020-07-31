@@ -16,7 +16,10 @@ as Select snum, sname, city
 from Salespeople
 where city is NULL
 OR sname BETWEEN ‘A’ and ‘MZ’;
-
+1. viwes can be updated and allows dml commands
+2. views cannot be updated because of join
+3. views cannot be updated
+4. views can be updated
 =========================================================================================
 -- 2) Create a view of the Salespeople table called Commissions. This view will include
 -- only the snum and comm fields. Through this view, someone could enter or change
